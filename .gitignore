@@ -1,0 +1,40 @@
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Foundry
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# Generated VK contracts (regenerate with circuit setup)
+contracts/src/verifier/VKEpoch_*.sol
+contracts/src/verifier/VKDeposit_*.sol
+contracts/src/verifier/VKForced_*.sol
+contracts/src/verifier/*_vk_batch*.json
+contracts/src/verifier/*_vk_config*.json
+
+# Environment files
+.env
+.env.*
+*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+bin/
+dist/
