@@ -1,9 +1,49 @@
-# Privacy Boost
+<p align="center">
+  <img src="./assets/PB_logo_primary_symbol.png" alt="Privacy Boost" width="120" />
+</p>
 
-Onchain privacy infrastructure for enterprises.
+<h1 align="center">Privacy Boost Protocol</h1>
 
-Built by [Sunnyside Labs](https://www.privacyboost.io/)
+<p align="center">
+  Onchain Privacy Infrastructure for Enterprises
+</p>
+
+<p align="center">
+  <a href="https://www.privacyboost.io/">Website</a> &middot;
+  <a href="https://docs.privacyboost.io/">Docs</a> &middot;
+  <a href="LICENSE">Apache 2.0</a>
+</p>
+
+---
+
+Privacy Boost enables private deposits, transfers, and withdrawals of ERC-20 tokens on any EVM chain. Zero-knowledge proofs (Groth16/BN254) hide sender, recipient, amount, and token type -- while preserving full self-custody.
+
+This repository contains the **smart contracts** and **ZK circuits** that make up the core protocol.
+
+## Overview
+
+```
+contracts/
+  src/
+    PrivacyBoost.sol        Core shielded pool
+    AuthRegistry.sol        EdDSA key registry
+    TokenRegistry.sol       Token ID mapping
+    verifier/               Groth16 proof verifiers
+    lib/                    Merkle tree, Poseidon2, BabyJubJub
+
+frontend/
+    epoch_circuit.go        Batched transfer & withdrawal circuit
+    deposit_epoch_circuit.go  Batched deposit circuit
+    forced_withdraw_circuit.go  Emergency exit circuit (client-side)
+```
+
+## Key Properties
+
+- **Self-custodial** -- Users can always exit via forced withdrawal using only their keys and onchain data, no server needed
+- **Private** -- UTXO commitments hide all transfer details
+- **High throughput** -- Epoch batching amortizes proof verification across many transactions
+- **EVM compatible** -- Works with existing wallets and ERC-20 tokens
 
 ## License
 
-[Apache 2.0](LICENSE)
+[Apache 2.0](LICENSE) -- Copyright 2026 Sunnyside Labs Inc.
